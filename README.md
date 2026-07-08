@@ -4,20 +4,20 @@ A data analysis and visualization mini-project that studies how students borrow 
 
 ---
 
-## 🎯 Project Purpose
+## Project Purpose
 
 College libraries generate borrowing data every day, but rarely analyze it. This project turns that raw data into actionable insight:
 
-- 📖 Which books are borrowed the most (and which are dead stock)
-- 🏫 Which departments read the most
-- 📅 When library usage peaks (e.g., exam season)
-- ⏱️ How long students typically keep a book
+-  Which books are borrowed the most (and which are dead stock)
+- Which departments read the most
+- When library usage peaks (e.g., exam season)
+- How long students typically keep a book
 
 This helps a librarian decide what to restock, what to remove, and when to extend library hours.
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 Raw Library Data (CSV / Manual Entry)
@@ -43,7 +43,7 @@ HTML/CSS Dashboard (Charts + Insights)
 
 ---
 
-## 🧩 Module Breakdown
+##  Module Breakdown
 
 | Module | Responsibility | Tech Used |
 |---|---|---|
@@ -56,7 +56,7 @@ HTML/CSS Dashboard (Charts + Insights)
 
 ---
 
-## 🗄️ Database Schema
+##  Database Schema
 
 **Table: STUDENTS**
 | Column | Type | Notes |
@@ -87,7 +87,7 @@ Relationship: One student can borrow many books, and one book can be borrowed by
 
 ---
 
-## 🔄 Data Pipeline (Step-by-Step)
+##  Data Pipeline (Step-by-Step)
 
 **Step 1 — Data Collection**
 Dataset fields:
@@ -114,7 +114,7 @@ Dataset fields:
 
 ---
 
-## ✅ Sample Expected Results
+##  Sample Expected Results
 
 | Metric | Example Result |
 |---|---|
@@ -126,7 +126,7 @@ Dataset fields:
 
 ---
 
-## 📁 Suggested Project Structure
+##  Suggested Project Structure
 
 ```
 library-analysis/
@@ -148,7 +148,7 @@ library-analysis/
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 1. **Clone the repository**
    ```bash
@@ -182,7 +182,7 @@ library-analysis/
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend:** Python, Flask
 - **Database:** MySQL
@@ -192,16 +192,16 @@ library-analysis/
 
 ---
 
-## 💡 Why This Project Stands Out
+##  Why This Project Stands Out
 
-- 🏫 Directly relevant to everyday college life
-- 📂 Can use real data collected from your own college library
-- 💬 Simple to explain in project reviews/vivas
-- 🧩 Clean, modular structure with clear database design
+-  Directly relevant to everyday college life
+-  Can use real data collected from your own college library
+- Simple to explain in project reviews/vivas
+-  Clean, modular structure with clear database design
 
 ---
 
-## 📌 Future Enhancements
+##  Future Enhancements
 
 - Add student login for self-service borrowing history
 - Predictive model for book demand forecasting
@@ -210,6 +210,6 @@ library-analysis/
 
 ---
 
-## 📄 License
+##  License
 
 This project is open-source and available for academic and educational use.
