@@ -107,10 +107,10 @@ Dataset fields:
 - Average book holding time (`date_returned - date_borrowed`)
 
 **Step 4 — Visualization**
-- 📊 Bar chart — Top 10 most borrowed books
-- 🥧 Pie chart — Genre-wise distribution
-- 📈 Line graph — Monthly borrowing trend
-- 🔥 Heatmap — Department vs. reading frequency
+-  Bar chart — Top 10 most borrowed books
+-  Pie chart — Genre-wise distribution
+-  Line graph — Monthly borrowing trend
+-  Heatmap — Department vs. reading frequency
 
 ---
 
@@ -210,6 +210,4 @@ library-analysis/
 
 ---
 
-##  License
 
-This project is open-source and available for academic and educational use.
