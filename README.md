@@ -1,0 +1,260 @@
+# Library Book Usage & Reading Pattern Analysis
+
+A data analysis and visualization mini-project that studies how students borrow and use library books. Identifies the most popular books, busiest departments, seasonal borrowing trends, and average reading duration.
+
+**Built with:** Python • Flask • MySQL • Pandas • Matplotlib • Seaborn • HTML/CSS
+
+---
+
+##  Problem Statement
+
+Libraries in educational institutions maintain large collections of books but lack proper tools to track and analyze borrowing patterns. Without insights into which books are frequently used, which departments are most active, and when library usage peaks, library management cannot make data-driven decisions about restocking, removal, or operational hours.
+
+This project solves that by analyzing real borrowing data to generate **actionable insights for library management**.
+
+---
+
+##  Features
+
+- **Login-Protected Dashboard** — Session-based admin authentication
+- **6 Interactive Visualizations**
+  - Top 10 most borrowed books (bar chart)
+  - Genre-wise distribution (pie chart)
+  - Monthly borrowing trends (line chart)
+  - Department-wise activity (bar chart)
+  - Department vs. month heatmap
+  - Year-wise reading activity (bar chart)
+- **Summary Statistics** — Most borrowed book, peak month, top department, average hold time
+- **Borrow Records Table** — Full searchable records of all transactions
+- **Relational Database** — 5-table MySQL schema with proper foreign keys
+
+---
+
+##  Sample Insights
+
+| Metric | Result |
+|--------|--------|
+| **Most Borrowed Book** | Data Structures by Narasimha Karumanchi |
+| **Most Active Department** | CSE / AIDS |
+| **Peak Reading Month** | November (exam season) |
+| **Average Hold Time** | 7 days |
+| **Least Popular Genre** | Fiction |
+
+---
+
+##  Project Structure
+
+```
+Library-Book-Usage-and-Reading-Pattern-Analysis/
+│
+├── data/
+│   └── library_data.csv              # 75-record dataset
+│
+├── app.py                             # Flask application
+├── analysis.py                        # Data analysis & chart generation
+├── database.sql                       # MySQL schema + sample data
+├── requirements.txt                   # Python dependencies
+│
+├── static/
+│   └── charts/                        # Generated chart images
+│
+├── templates/
+│   ├── login.html                     # Login page
+│   ├── index.html                     # Dashboard
+│   ├── analysis.html                  # Analysis view
+│   └── records.html                   # Records table
+│
+└── README.md
+```
+
+---
+
+##  Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| **Backend** | Python 3, Flask |
+| **Database** | MySQL |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Matplotlib, Seaborn |
+| **Frontend** | HTML5, CSS3, JavaScript |
+
+---
+
+##  Installation
+
+### Prerequisites
+- Python 3.8+
+- MySQL Server
+- pip (Python package manager)
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/sunderpradeep14-blip/Library-Book-Usage-and-Reading-Pattern-Analysis.git
+cd Library-Book-Usage-and-Reading-Pattern-Analysis
+```
+
+### Step 2: Create Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Set Up Database
+```bash
+mysql -u root -p < database.sql
+```
+
+### Step 5: Run the Application
+```bash
+python app.py
+```
+
+### Step 6: Access the Dashboard
+Open your browser and navigate to:
+```
+http://127.0.0.1:5000
+```
+
+**Demo Credentials:**
+- Username: `admin`
+- Password: `admin123`
+
+⚠️ **Note:** These are demo credentials for local/academic use only. Never use in production.
+
+---
+
+##  Database Schema
+
+### admin
+- `admin_id` (INT, PK, auto-increment)
+- `username` (VARCHAR 50, unique)
+- `password` (VARCHAR 255)
+- `email` (VARCHAR 100)
+- `role` (VARCHAR 20, default: 'admin')
+
+### books
+- `book_id` (VARCHAR 10, PK)
+- `title` (VARCHAR 200)
+- `author` (VARCHAR 100)
+- `genre` (VARCHAR 50)
+- `total_copies` (INT, default: 1)
+- `available_copies` (INT, default: 1)
+
+### students
+- `student_id` (VARCHAR 10, PK)
+- `name` (VARCHAR 100)
+- `department` (VARCHAR 20)
+- `year` (INT)
+- `email` (VARCHAR 100)
+- `roll_number` (VARCHAR 20)
+
+### borrow_records
+- `record_id` (INT, PK, auto-increment)
+- `student_id` (VARCHAR 10, FK → students)
+- `book_id` (VARCHAR 10, FK → books)
+- `borrow_date` (DATE)
+- `return_date` (DATE)
+- `due_date` (DATE)
+- `status` (VARCHAR 20, default: 'Borrowed')
+
+### reports
+- `report_id` (INT, PK, auto-increment)
+- `generated_by` (INT, FK → admin)
+- `report_type` (VARCHAR 50)
+- `generated_date` (DATE)
+- `description` (TEXT)
+
+---
+
+##  How to Use
+
+### Login
+1. Navigate to `http://127.0.0.1:5000`
+2. Enter demo credentials (admin / admin123)
+3. Access the dashboard
+
+### Dashboard View (`/`)
+- Displays auto-generated charts and summary statistics
+- Charts regenerate each time you visit
+
+### Analysis View (`/analysis`)
+- View top 5 most borrowed books
+- Department-wise borrowing breakdown
+
+### Records View (`/records`)
+- Browse complete borrow records
+- View student IDs, book titles, dates, and status
+
+### Logout
+- Click logout to clear your session
+
+---
+
+## 📈 Data Flow
+
+```
+CSV Data (library_data.csv)
+    ↓
+Python Analysis (analysis.py)
+    ├── Parse dates
+    ├── Calculate holding duration
+    ├── Compute statistics
+    └── Generate 6 PNG charts
+    ↓
+Flask Web App (app.py)
+    ├── Serve charts
+    ├── Display statistics
+    └── Render HTML templates
+    ↓
+User Dashboard (HTML/CSS)
+    ├── View visualizations
+    ├── Query data
+    └── Browse records
+```
+
+---
+
+##  Deployment
+
+### PythonAnywhere Deployment
+1. Upload project files to PythonAnywhere
+2. Set up virtual environment
+3. Configure MySQL database
+4. Update Flask web app configuration
+5. Reload web app
+
+### Local Development
+- Run `python app.py`
+- Access via `http://localhost:5000`
+
+---
+
+##  Future Enhancements
+
+- [ ] Student-facing login to view personal borrowing history
+- [ ] Predictive model for book demand forecasting
+- [ ] Overdue book alert/notification system
+- [ ] Move admin credentials to environment variables
+- [ ] Add book recommendation engine
+- [ ] Export reports to PDF
+- [ ] Real-time analytics dashboard
+
+---
+
+##  License
+
+This project is open-source and available for academic and educational use.
+
+---
+
+
+
+---
+
+**Last Updated:** July 2026
